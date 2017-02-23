@@ -7,4 +7,5 @@ if($value){
 	echo "<br>Imagen2 ".$value." generada2 satisfactoriamente2<br>";
 }else{
 	echo "<br>Imagen no generada, revisar errores<br>";
+	echo "<br>Imagen2 no generada2, revisar errores<br>";
 }
