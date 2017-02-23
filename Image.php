@@ -1,14 +1,16 @@
 <?php
 class Image
 {
-   const RUTA_IMAGEN = 'images/'; 
-   const RUTA_NUEVA_IMAGEN = 'images_new/'; 
+   const RUTA_IMAGEN = 'images/';
+   const RUTA_NUEVA_IMAGEN = 'images_new/';
 
    private $_image;
    private $_widthImage;
     private $_heightImage;
     private $_imageType;
     private $_quality;
+    private $newVarForRebase;
+  
 
     function __construct($image)
     {
@@ -17,7 +19,7 @@ class Image
         set_error_handler(array(Image,'errorHandler'));
     }
 
-    public static function errorHandler ($errno, $errstr, $errfile, $errline) 
+    public static function errorHandler ($errno, $errstr, $errfile, $errline)
     {
             switch ($errno) {
             case E_USER_ERROR:
@@ -116,15 +118,15 @@ class Image
 
     function createImage()
     {
-        if ($this->_imageType==1) { 
-            $img = imagecreatefromgif($this->_image); 
-        } 
-        if ($this->_imageType==2) { 
-            $img = imagecreatefromjpeg($this->_image); 
-        } 
-        if ($this->_imageType==3) { 
-            $img = imagecreatefrompng($this->_image); 
-        } 
+        if ($this->_imageType==1) {
+            $img = imagecreatefromgif($this->_image);
+        }
+        if ($this->_imageType==2) {
+            $img = imagecreatefromjpeg($this->_image);
+        }
+        if ($this->_imageType==3) {
+            $img = imagecreatefrompng($this->_image);
+        }
         return $img;
     }
 
@@ -168,8 +170,8 @@ class Image
             $height = $this->getHeightResize($width);
         }
         $newImage = $this->createImage();
-        $thumb = imagecreatetruecolor($width, $height); 
-        imagecopyresampled($thumb, $newImage, 0, 0, 0, 0, $width, $height, $this->_widthImage, $this->_heightImage); 
+        $thumb = imagecreatetruecolor($width, $height);
+        imagecopyresampled($thumb, $newImage, 0, 0, 0, 0, $width, $height, $this->_widthImage, $this->_heightImage);
         $newname = $this->setNewName();
         try{
             if (is_dir($this->getRutaNuevaImagen())) {
