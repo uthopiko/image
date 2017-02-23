@@ -23,6 +23,7 @@ class Image
     private $newVarForRebase12;
     private $newVarForRebase12;
     private $newVarForRebase12;
+    private $newVarForRebase12;
 
 
     function __construct($image)
