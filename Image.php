@@ -10,7 +10,8 @@ class Image
     private $_imageType;
     private $_quality;
     private $newVarForRebase;
-  
+    private $newVarForRebase2;
+
 
     function __construct($image)
     {
