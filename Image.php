@@ -11,6 +11,7 @@ class Image
     private $_quality;
     private $newVarForRebase;
     private $newVarForRebase2;
+    private $newVarForRebase3;
 
 
     function __construct($image)
